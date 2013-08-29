@@ -1,0 +1,4 @@
+bin
+build
+tomcat.8080
+.gradle
