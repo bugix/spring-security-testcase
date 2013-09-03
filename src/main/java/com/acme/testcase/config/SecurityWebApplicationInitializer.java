@@ -3,9 +3,8 @@ package com.acme.testcase.config;
 import javax.servlet.ServletContext;
 
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
-public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
+public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializerFixed {
 
 	@Override
 	public boolean enableHttpSessionEventPublisher() {
