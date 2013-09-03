@@ -2,11 +2,11 @@ package com.acme.testcase.config;
 
 import javax.servlet.Filter;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-
+@Order(2)
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
@@ -23,12 +23,9 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
-	
-	/*
+
 	@Override
 	protected Filter[] getServletFilters() {
-		return new Filter[] { new OpenEntityManagerInViewFilter(), new DelegatingFilterProxy("springSecurityFilterChain") };
-		//return new Filter[] { new OpenEntityManagerInViewFilter() };
+		return new Filter[] { new OpenEntityManagerInViewFilter() };
 	}
-	*/
 }

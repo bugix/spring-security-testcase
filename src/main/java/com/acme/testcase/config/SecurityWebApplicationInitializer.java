@@ -1,18 +1,13 @@
 package com.acme.testcase.config;
 
-import javax.servlet.ServletContext;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
-import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-
-public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializerFixed {
+@Order(1)
+public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
 
 	@Override
 	public boolean enableHttpSessionEventPublisher() {
 		return true;
-	}
-
-	@Override
-	protected void afterSpringSecurityFilterChain(ServletContext servletContext) {
-		insertFilters(servletContext, new OpenEntityManagerInViewFilter());
 	}
 }
