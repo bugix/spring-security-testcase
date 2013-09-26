@@ -1,16 +1,15 @@
 // Apply the java plugin to add support for Java
-apply plugin: 'war'
-apply plugin: 'eclipse'
+apply plugin: "war"
+apply plugin: "eclipse"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
 	mavenCentral()
-	mavenRepo name: 'snapshot-repo', url: 'http://maven.springframework.org/snapshot'
-	mavenRepo name: 'libs-milestone-repo', url: "http://repo.springsource.org/libs-milestone"
+	maven { url "http://repo.spring.io/snapshot" }
 }
 
 configurations {
-	all*.exclude group: 'commons-logging', module: 'commons-logging'
+	all*.exclude group: "commons-logging", module: "commons-logging"
 	provided
 }
 
@@ -26,7 +25,7 @@ dependencies {
 	compile "org.springframework.security:spring-security-config:3.2.0.CI-SNAPSHOT"
 	compile "org.springframework.security:spring-security-web:3.2.0.CI-SNAPSHOT"
 
-	compile 'org.springframework.data:spring-data-jpa:1.4.0.RC1'
+	compile "org.springframework.data:spring-data-jpa:1.4.1.RELEASE"
 	compile "org.hibernate:hibernate-entitymanager:4.2.5.Final"
 
 	compile "org.slf4j:jcl-over-slf4j:1.7.2"
@@ -37,10 +36,10 @@ dependencies {
 
 	providedCompile "javax.servlet:javax.servlet-api:3.0.1"
 
-	provided 'org.apache.tomcat.embed:tomcat-embed-core:7.0.42'
-	provided 'org.apache.tomcat.embed:tomcat-embed-logging-juli:7.0.42'
-	provided 'org.apache.tomcat.embed:tomcat-embed-logging-log4j:7.0.42'
-	provided 'org.apache.tomcat.embed:tomcat-embed-jasper:7.0.42'
+	provided "org.apache.tomcat.embed:tomcat-embed-core:7.0.42"
+	provided "org.apache.tomcat.embed:tomcat-embed-logging-juli:7.0.42"
+	provided "org.apache.tomcat.embed:tomcat-embed-logging-log4j:7.0.42"
+	provided "org.apache.tomcat.embed:tomcat-embed-jasper:7.0.42"
 	
 	testCompile "junit:junit:4.11"
 	testCompile "org.springframework:spring-test:3.2.4.RELEASE"
